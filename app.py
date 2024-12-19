@@ -17,6 +17,7 @@ import nltk
 nltk.download('punkt')
 nltk.download('wordnet')
 nltk.download('stopwords')
+nltk.download('punkt_tab')
 
 # Load spaCy model for NER (Named Entity Recognition)
 nlp = spacy.load("en_core_web_sm")
