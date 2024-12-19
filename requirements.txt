@@ -3,6 +3,7 @@ re
 python-docx
 gensim
 spacy
-PyPDF2
 nltk
 scikit-learn
+PyPDF2
+en-core-web-sm
