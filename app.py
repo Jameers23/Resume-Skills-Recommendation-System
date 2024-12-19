@@ -19,13 +19,16 @@ nltk.download('wordnet')
 nltk.download('stopwords')
 nltk.download('punkt_tab')
 
-# Check if the model is already installed
 model_name = "en_core_web_sm"
-model_path = os.path.join(spacy.util.get_data_path(), model_name)
 
-if not os.path.exists(model_path):
-    print("Downloading the spaCy model...")
-    os.system("python -m spacy download en_core_web_sm")
+# Try loading the model if already installed
+try:
+    nlp = spacy.load(model_name)
+except OSError:
+    print(f"Model {model_name} not found. Downloading...")
+    # If the model is not found, download it
+    os.system(f"python -m spacy download {model_name}")
+    nlp = spacy.load(model_name)
 
 # Now load the model
 nlp = spacy.load(model_name)
