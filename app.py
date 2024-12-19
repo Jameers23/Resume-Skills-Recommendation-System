@@ -3,7 +3,7 @@ import PyPDF2
 import docx
 import spacy
 import re
-import pickle
+import pickle, os
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords, wordnet
@@ -19,8 +19,16 @@ nltk.download('wordnet')
 nltk.download('stopwords')
 nltk.download('punkt_tab')
 
-# Load spaCy model for NER (Named Entity Recognition)
-nlp = spacy.load("en_core_web_sm")
+# Check if the model is already installed
+model_name = "en_core_web_sm"
+model_path = os.path.join(spacy.util.get_data_path(), model_name)
+
+if not os.path.exists(model_path):
+    print("Downloading the spaCy model...")
+    os.system("python -m spacy download en_core_web_sm")
+
+# Now load the model
+nlp = spacy.load(model_name)
 
 # Load the necessary models and encoders
 with open('label_encoder.pkl', 'rb') as file:

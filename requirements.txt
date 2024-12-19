@@ -1,0 +1,9 @@
+pickle
+streamlit
+re
+python-docx
+gensim
+spacy
+PyPDF2
+nltk
+scikit-learn
