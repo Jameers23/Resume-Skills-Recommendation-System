@@ -222,7 +222,7 @@ def main():
     # Sidebar
     st.sidebar.title("Resume Skill Recommendation System")
     st.sidebar.title("Navigation")
-    page = st.sidebar.radio("Select a Page", ["Home", "Resume Predictor", "Job Description Comparison"])
+    page = st.sidebar.radio("Select a Page", ["Home", "Resume Job Role Predictor", "Job Description Comparison"])
     st.sidebar.markdown("---")
     st.sidebar.markdown("""
         ## Features:
