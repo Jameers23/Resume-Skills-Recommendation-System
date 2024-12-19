@@ -30,13 +30,13 @@ except OSError:
 
     
 # Load the necessary models and encoders
-with open('label_encoder.pkl', 'rb') as file:
+with open('models/label_encoder.pkl', 'rb') as file:
     label_encoder = pickle.load(file)
 
-with open('word2vec_model.pkl', 'rb') as file:
+with open('models/word2vec_model.pkl', 'rb') as file:
     word2vec_model = pickle.load(file)
 
-with open('rf_model.pkl', 'rb') as file:
+with open('models/rf_model.pkl', 'rb') as file:
     rf_model = pickle.load(file)
 
 # Initialize lemmatizer and stop words
@@ -260,7 +260,7 @@ def main():
         """)
 
     # Resume Predictor Page
-    elif page == "Resume Predictor":
+    elif page == "Resume Job Role Predictor":
         st.title("🔮 Resume Job Role Prediction")
         st.image("https://miro.medium.com/v2/resize:fit:1200/0*upQaFSWPvVAag9Q-.jpeg", use_container_width=True)
         
