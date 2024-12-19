@@ -21,18 +21,15 @@ nltk.download('punkt_tab')
 
 model_name = "en_core_web_sm"
 
-# Try loading the model if already installed
 try:
+    # Try loading the model
     nlp = spacy.load(model_name)
-except:
-    print(f"Model {model_name} not found. Downloading...")
+except OSError:
     # If the model is not found, download it
-    os.system(f"python -m spacy download {model_name}")
+    print(f"Model '{model_name}' not found. Downloading...")
+    spacy.cli.download(model_name)
     nlp = spacy.load(model_name)
-
-# Now load the model
-nlp = spacy.load(model_name)
-
+    
 # Load the necessary models and encoders
 with open('label_encoder.pkl', 'rb') as file:
     label_encoder = pickle.load(file)
