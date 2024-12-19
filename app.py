@@ -3,7 +3,7 @@ import PyPDF2
 import docx
 import spacy
 import re
-import pickle, os
+import pickle
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords, wordnet
@@ -11,6 +11,7 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 from roles_skills import categories_skills
+from spacy.cli import download
 
 # Download NLTK resources (only needs to be done once)
 import nltk
@@ -19,13 +20,14 @@ nltk.download('wordnet')
 nltk.download('stopwords')
 nltk.download('punkt_tab')
 
-# Check if the model is already installed
+# Try to load the model
 try:
-    nlp = spacy.load("en_core_web_sm")
+    nlp = spacy.load("en_core_web_md")
 except OSError:
-    # If not installed, download and install it
-    spacy.cli.download("en_core_web_sm")
-    nlp = spacy.load("en_core_web_sm")
+    # Download the model if not available
+    download("en_core_web_md")
+    nlp = spacy.load("en_core_web_md")
+
     
 # Load the necessary models and encoders
 with open('label_encoder.pkl', 'rb') as file:
