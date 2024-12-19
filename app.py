@@ -24,7 +24,7 @@ model_name = "en_core_web_sm"
 # Try loading the model if already installed
 try:
     nlp = spacy.load(model_name)
-except OSError:
+except:
     print(f"Model {model_name} not found. Downloading...")
     # If the model is not found, download it
     os.system(f"python -m spacy download {model_name}")
