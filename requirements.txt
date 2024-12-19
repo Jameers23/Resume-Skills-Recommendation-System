@@ -5,3 +5,4 @@ spacy
 nltk
 scikit-learn
 PyPDF2==2.12.1
+en-core-web-sm==3.8.0

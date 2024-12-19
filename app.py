@@ -19,16 +19,7 @@ nltk.download('wordnet')
 nltk.download('stopwords')
 nltk.download('punkt_tab')
 
-model_name = "en_core_web_sm"
-
-try:
-    # Try loading the model
-    nlp = spacy.load(model_name)
-except OSError:
-    # If the model is not found, download it
-    print(f"Model '{model_name}' not found. Downloading...")
-    spacy.cli.download(model_name)
-    nlp = spacy.load(model_name)
+nlp = spacy.load( "en_core_web_sm")
     
 # Load the necessary models and encoders
 with open('label_encoder.pkl', 'rb') as file:
