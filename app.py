@@ -24,7 +24,7 @@ try:
     nlp = spacy.load("en_core_web_sm")
 except OSError:
     # If not installed, download and install it
-    spacy.download("en_core_web_sm")
+    spacy.cli.download("en_core_web_sm")
     nlp = spacy.load("en_core_web_sm")
     
 # Load the necessary models and encoders
